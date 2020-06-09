@@ -1,0 +1,41 @@
+/*--------- variables---------- */
+
+//colors
+$white: #fff;
+$black: #000;
+$main: #f86b0d;
+$main-lighten: lighten($main, 20);
+$main-darken: darken($main, 20);
+$second: #2f2f2f;
+$second-lighten: lighten($second, 20);
+$second-darken: darken($second, 20);
+$bg: #f6f6f6;
+$link: dodgerblue;
+$text-base: #333;
+
+//typography
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../font/OpenSans-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../font/OpenSans-Regular.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../font/OpenSans-Bold.ttf);
+  font-weight: 800;
+}
+/*------------ end typo -----------*/
+
+$font: OpenSans, sans-serif;
+$font-size-base: 14px;
+$font-w: 300;
+$w-color: $main;
+$w-bg: $bg;
+$w-header: 1px;
+$n-w-header: -#{$w-header};

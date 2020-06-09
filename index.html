@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Data-Variable.app</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/FileSaver.min.js"></script>
+    <script src="./js/xlsx.full.min.js"></script>
+    <script src="./js/clipboard.min.js"></script>
+  </head>
+  <body>
+    <div id="drop-area">
+      <h3>Arrastra y suelta!</h3>
+      <p>para cargar tu archivo y procesarlo</p>
+    </div>
+    <div class="container">
+      <div class="uploader" data-file="1">
+        <input class="fake" type="file" hidden />
+        <div class="getfile">
+          <svg viewBox="0 0 72 72">
+            <path
+              d="M36.493 72C16.118 72 0 55.883 0 36.493 0 16.118 16.118 0 36.493 0 55.882 0 72 16.118 72 36.493 72 55.882 55.883 72 36.493 72zM34 34h-9c-.553 0-1 .452-1 1.01v1.98A1 1 0 0 0 25 38h9v9c0 .553.452 1 1.01 1h1.98A1 1 0 0 0 38 47v-9h9c.553 0 1-.452 1-1.01v-1.98A1 1 0 0 0 47 34h-9v-9c0-.553-.452-1-1.01-1h-1.98A1 1 0 0 0 34 25v9z"
+              fill-rule="nonzero"
+            ></path>
+          </svg>
+          <div>
+            <h2>Arrastra tu archivo</h2>
+            <button class="">
+              O selecciona una carpeta
+            </button>
+          </div>
+        </div>
+        <div class="info-data">
+          <h3>1 archivo cargado con éxito</h3>
+          <p></p>
+        </div>
+        <div class="options">
+          <div class="opt-anim">
+            <div class="check-box">
+              <label class="toggleButton">
+                Excluir codigos con "0" impresiones en el excel
+                <input type="checkbox" />
+                <div>
+                  <svg viewBox="0 0 44 44">
+                    <path
+                      d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758"
+                      transform="translate(-2.000000, -2.000000)"
+                    ></path>
+                  </svg>
+                </div>
+                <p></p>
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="sendfile">
+          <button class="option" aria-label="">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12,24 C5.372583,24 0,18.627417 0,12 C0,5.372583 5.372583,0 12,0 C18.627417,0 24,5.372583 24,12 C24,18.627417 18.627417,24 12,24 Z M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M16.5,13.5 C17.3284271,13.5 18,12.8284271 18,12 C18,11.1715729 17.3284271,10.5 16.5,10.5 C15.6715729,10.5 15,11.1715729 15,12 C15,12.8284271 15.6715729,13.5 16.5,13.5 Z M12,13.5 C12.8284271,13.5 13.5,12.8284271 13.5,12 C13.5,11.1715729 12.8284271,10.5 12,10.5 C11.1715729,10.5 10.5,11.1715729 10.5,12 C10.5,12.8284271 11.1715729,13.5 12,13.5 Z M7.5,13.5 C8.32842712,13.5 9,12.8284271 9,12 C9,11.1715729 8.32842712,10.5 7.5,10.5 C6.67157288,10.5 6,11.1715729 6,12 C6,12.8284271 6.67157288,13.5 7.5,13.5 Z"
+              ></path>
+            </svg>
+          </button>
+          <button type="button" class="send">
+            Cargar
+          </button>
+        </div>
+      </div>
+      <div class="tabs">
+        <div data-tab="1" class="active">códigos</div>
+        <div data-tab="2">copias</div>
+        <div data-tab="3">repeticiones</div>
+        <div data-tab="4">data</div>
+      </div>
+      <div class="content">
+        <div class="header">
+          <div data-tab="1">
+            <h3>Total:</h3>
+            <div id="busqueda">
+              <input id="search" type="text" placeholder="ej. 0761" />
+              <button>
+                <a href="#">Buscar</a>
+              </button>
+            </div>
+          </div>
+          <div data-tab="2">
+            <h3>Impresiones</h3>
+            <h5></h5>
+          </div>
+          <div data-tab="3">
+            <h3>Repeticiones</h3>
+            <button class="btn" data-clipboard-target="#repeticiones">
+              copiar
+            </button>
+          </div>
+          <div data-tab="4">
+            <h3>UTF-16 data</h3>
+            <button id="downloadtxt">generar data</button>
+          </div>
+        </div>
+
+        <div class="main">
+          <div data-tab="1">
+            <div id="codigos"></div>
+          </div>
+          <div data-tab="2">
+            <div id="impresiones"></div>
+          </div>
+          <div data-tab="3">
+            <ul id="repeticiones"></ul>
+          </div>
+          <div data-tab="4">
+            <table id="table">
+              <tr>
+                <td>numero</td>
+                <td>@col1</td>
+                <td>@col2</td>
+                <td>@col3</td>
+                <td>@col4</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

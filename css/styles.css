@@ -1,0 +1,705 @@
+/*--------- variables---------- */
+@font-face {
+  font-family: OpenSans;
+  src: url(../font/OpenSans-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../font/OpenSans-Regular.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../font/OpenSans-Bold.ttf);
+  font-weight: 800;
+}
+
+/*------------ end typo -----------*/
+*::-moz-selection {
+  background: #fba870;
+}
+*::selection {
+  background: #fba870;
+}
+
+div.main::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+div.main::-webkit-scrollbar {
+  width: 14px;
+  height: 5px;
+  background-color: #f5f5f5;
+}
+
+div.main::-webkit-scrollbar-thumb {
+  background-color: #f86b0d;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: 14px;
+  background: #f6f6f6;
+  font-family: OpenSans, sans-serif;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+hr {
+  border: 1px solid #f86b0d;
+  width: 80%;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#drop-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f86b0d;
+  z-index: 9999;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#drop-area h3 {
+  color: #fff;
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+#drop-area p {
+  color: #f6f6f6;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  background: #fff;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 30px -12px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 30px -12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+div.uploader {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.uploader div.getfile {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  outline: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.uploader div.getfile:hover svg {
+  fill: #9b4004;
+}
+
+div.uploader div.getfile svg {
+  padding-right: 1rem;
+  -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  fill: #f86b0d;
+  height: 50px;
+  width: auto;
+}
+
+div.uploader div.getfile h2 {
+  font-weight: 600;
+}
+
+div.uploader div.getfile button {
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  outline: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+}
+
+div.uploader div.getfile button:hover {
+  color: #f86b0d;
+}
+
+div.uploader div.info-data {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+  height: 100%;
+}
+
+div.uploader div.info-data p {
+  color: #f86b0d;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+div.uploader div.info-data p span {
+  color: #333;
+}
+
+div.uploader div.options {
+  width: 100%;
+  height: 0px;
+  background: #f6f6f6;
+  overflow: hidden;
+  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+div.uploader div.options div.opt-anim {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton {
+  cursor: pointer;
+  display: block;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.14s ease;
+  transition: -webkit-transform 0.14s ease;
+  transition: transform 0.14s ease;
+  transition: transform 0.14s ease, -webkit-transform 0.14s ease;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton span {
+  display: block;
+  font-weight: 800;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton:active {
+  -webkit-transform: rotateX(30deg);
+          transform: rotateX(30deg);
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton div {
+  margin: 1rem auto;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton p {
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: 800;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton p::before {
+  content: "desactivado";
+  font-weight: 800;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input {
+  display: none;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input + div {
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input + div svg {
+  fill: none;
+  stroke-width: 3.6;
+  stroke: rgba(0, 0, 0, 0.3);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 44px;
+  height: 44px;
+  display: block;
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  z-index: 1;
+  stroke-dashoffset: 124.6;
+  stroke-dasharray: 0 162.6 133 29.6;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input + div:before, div.uploader div.options div.opt-anim div.check-box .toggleButton input + div:after {
+  content: "";
+  width: 3px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 5px;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input + div:before {
+  opacity: 0;
+  -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+          transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  -webkit-animation: bounceInBefore 0.3s linear forwards 0.3s;
+          animation: bounceInBefore 0.3s linear forwards 0.3s;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input + div:after {
+  opacity: 0;
+  -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+          transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  -webkit-animation: bounceInAfter 0.3s linear forwards 0.3s;
+          animation: bounceInAfter 0.3s linear forwards 0.3s;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input:checked + div {
+  border: 3px solid rgba(248, 107, 13, 0.5);
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input:checked + div ~ p {
+  color: #f86b0d;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input:checked + div ~ p::before {
+  content: "activado";
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input:checked + div svg {
+  stroke-dashoffset: 162.6;
+  stroke-dasharray: 0 162.6 28 134.6;
+  stroke: #f86b0d;
+  -webkit-transition: all 0.4s ease 0.2s;
+  transition: all 0.4s ease 0.2s;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input:checked + div:before {
+  opacity: 0;
+  -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+          transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  -webkit-animation: bounceInBeforeDont 0.3s linear forwards 0s;
+          animation: bounceInBeforeDont 0.3s linear forwards 0s;
+}
+
+div.uploader div.options div.opt-anim div.check-box .toggleButton input:checked + div:after {
+  opacity: 0;
+  -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+          transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  -webkit-animation: bounceInAfterDont 0.3s linear forwards 0s;
+          animation: bounceInAfterDont 0.3s linear forwards 0s;
+}
+
+@-webkit-keyframes bounceInBefore {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+  50% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+            transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+  }
+  80% {
+    opacity: 1;
+    -webkit-transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+            transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@keyframes bounceInBefore {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+  50% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+            transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+  }
+  80% {
+    opacity: 1;
+    -webkit-transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+            transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@-webkit-keyframes bounceInAfter {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+  50% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+  }
+  80% {
+    opacity: 1;
+    -webkit-transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+@keyframes bounceInAfter {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+  50% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+  }
+  80% {
+    opacity: 1;
+    -webkit-transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+@-webkit-keyframes bounceInBeforeDont {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@keyframes bounceInBeforeDont {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@-webkit-keyframes bounceInAfterDont {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+@keyframes bounceInAfterDont {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+            transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+div.uploader div.sendfile {
+  background: #fff;
+  height: 30%;
+  padding: 1rem;
+  outline: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+div.uploader div.sendfile button.option {
+  position: absolute;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  top: 50%;
+  left: 10%;
+  -webkit-transform: translate(100%, -50%);
+          transform: translate(100%, -50%);
+  width: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+div.uploader div.sendfile button.option:hover svg {
+  fill: #9b4004;
+}
+
+div.uploader div.sendfile button.option svg {
+  -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  fill: #f86b0d;
+}
+
+div.uploader div.sendfile button.send {
+  background: #d0d0d0;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1em;
+  height: 2.5em;
+  outline: 0;
+  font-weight: 600;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 40%;
+  height: 50px;
+  -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+div.uploader div.sendfile .buttonsendact {
+  background: #f86b0d !important;
+  cursor: pointer !important;
+}
+
+div.uploader div.sendfile .buttonsendact:hover {
+  background: #9b4004 !important;
+}
+
+.tabs,
+.header,
+.main {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+}
+
+.tabs {
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+          user-select: none;
+  color: #333;
+  height: 40px;
+}
+
+.tabs div[data-tab] {
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: -webkit-box-flex 500ms;
+  transition: -webkit-box-flex 500ms;
+  transition: flex 500ms;
+  transition: flex 500ms, -webkit-box-flex 500ms, -ms-flex 500ms;
+}
+
+.tabs .active {
+  -webkit-box-shadow: 0px 1px #f86b0d inset, -1px 0px #f86b0d inset, 0px 1px #f6f6f6, 1px 0px #f86b0d inset;
+          box-shadow: 0px 1px #f86b0d inset, -1px 0px #f86b0d inset, 0px 1px #f6f6f6, 1px 0px #f86b0d inset;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: 800;
+  color: #f86b0d;
+  background: #f6f6f6;
+  -ms-flex-negative: 0.7;
+      flex-shrink: 0.7;
+  text-transform: uppercase;
+}
+
+.tabs .active:first-child {
+  -webkit-box-shadow: 0px 1px #f86b0d inset, -1px 0px #f86b0d inset, 0px 1px #f6f6f6;
+          box-shadow: 0px 1px #f86b0d inset, -1px 0px #f86b0d inset, 0px 1px #f6f6f6;
+  border-top-left-radius: 0px;
+}
+
+.tabs .active:last-child {
+  -webkit-box-shadow: 0px 1px #f86b0d inset, 0px 1px #f6f6f6, 1px 0px #f86b0d inset;
+          box-shadow: 0px 1px #f86b0d inset, 0px 1px #f6f6f6, 1px 0px #f86b0d inset;
+  border-top-right-radius: 0px;
+}
+
+.header {
+  padding: 1rem;
+  background: #f6f6f6;
+  color: #626262;
+  height: 70px;
+  -webkit-box-shadow: 0px -1px #f86b0d inset, 0px -1px #f86b0d, 0 0 12px -2px rgba(248, 107, 13, 0.6);
+          box-shadow: 0px -1px #f86b0d inset, 0px -1px #f86b0d, 0 0 12px -2px rgba(248, 107, 13, 0.6);
+}
+
+.header div[data-tab]:nth-child(n + 2) {
+  display: none;
+}
+
+.main {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  overflow-y: auto;
+  padding: 1rem;
+  background: #fff;
+  color: #4b4b4b;
+  min-height: 100%;
+  height: 400px;
+}
+
+.main div[data-tab]:nth-child(n + 2) {
+  display: none;
+}
+/*# sourceMappingURL=styles.css.map */
